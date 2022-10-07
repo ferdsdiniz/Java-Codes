@@ -8,16 +8,11 @@ public static void main(String args[])
     func.NumPesCs=JOptionPane.ShowInputDialog("Numero de Moradores da casa: ");
        //conversão de string para integer
     func.NumPes=Integer.parseInt(JOptionPane.showInputDialog("Renda Familiar: "));
-    func.RendaFam=(JOptionPane.showInputDialog("Tipo de casa: "));
-    func.setCasa(cs);
-    double numh=Double.parseDouble(JOptionPane.showInputDialog("Numero Horas: "));
+    func.RendaFam=(JOptionPane.showInputDialog("Renda Familiar: "));
+    func.setTipoCasa(tcs);
+    JOptionPane.showInputDialog("Tipo de casa: "));
     func.setNumHoras(numh);
-    JOptionPane.showMessageDialog(null,"Nome: "+func.nome+
-      "\nNumero de Registro"+func.num_reg+
-        "\nValor hora: "+func.getValorHora()+
-          "\nNumero de horas: "+func.getNumHoras());
-    double salario=func.CalcularSalario();
-    func.ExibirSalario(salario);
+    JOptionPane.showMessageDialog(null,"Tipo de casa: "+TipoCasa);
    
     }
 
