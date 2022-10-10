@@ -278,7 +278,9 @@ O formato desejado é determinado acrescentando valores que indicam o tamanho e 
 //trecho de código:
 int a = 1, b = 10, c = 100;
 System.out.printf("'a' = %3d\n'b' = %3d\n'c' = %3d\n", a, b, c);
+
 resultado: 
+
 'a' =   1
 'b' =  10
 'c' = 100
@@ -293,8 +295,9 @@ double c = 5.0;
 System.out.printf("Variavel 'a' = %8.2f\n", a);
 System.out.printf("Variável 'b' = %8.2f\n", b);
 System.out.printf("Variável 'c' = %8.2f\n", c);
+
 resultado:
-,
+
 Variável 'a' =   135,45
 Variável 'b' = 23050,57
 Variável 'c' =     5,00
@@ -337,42 +340,139 @@ public class Exemplo5 {
 
 }
 
+O código fonte, apresentado na Listagem 5, 
+implementa uma entrada de dados para ler um número inteiro (variável n) usado no processo de repetição (for) para montar a tabuada de n. 
+
+classe Exemplo6, mostrada na Listagem 6, imprime uma tabela com os nomes dos meses do ano.
+ 
+public class Exemplo6 {
+
+    public static void main(String[] args) {
+      String nomeMes[] = {"Janeiro", "Fevereiro", "Março",
+        "Abril", "Maio", "Junho", "Julho", "Agosto",
+        "Setembro", "Outubro", "Novembro", "Dezembro"};
+
+      System.out.println("================");
+      System.out.println("Mês- Nome do Mês");
+      System.out.println("================");
+      for (int i=0; i<12; i++) {
+        System.out.printf(" %0,2d- %s\n", (i+1), nomeMes[i]);
+      }
+      System.out.println("================");
+    }
+
+  }
+
+O código fonte, apresentado na Listagem 6, implementa um vetor (variável nomeMes) que indexa os valores relacionados aos nomes dos meses para montar uma tabela.
+
+
+A classe Exemplo7, mostrada na Listagem 7, imprime os valores armazenados em uma variável do tipo vetor (v), 
+como pode ser observado através da sua execução.
+
+public class Exemplo7 {
+
+  public static void main(String[] args) {
+    int i, v[] = {3, 7, 8, 20, 11, 0, 9, 43, 6, 5};
+
+    for (i=0; i<v.length; i++) {
+      System.out.printf("v[%d]= %2d\n", i, v[i]);
+    }
+  }
+
+}
 
 
 
+-----------------------------------------------------------------Exemplos de erros (exception)-------------------------------------------------------------------------
+ Os códigos de controle, quando usados na expressão_de_controle de uma instrução System.out.printf(), devem corresponder à lista de argumentos declarada. 
+Esta correspondência diz respeito aos tipos de dados envolvidos e também à quantidade de controles e argumentos declarados. 
+As incompatibilidades, quando existirem, irão provocar erros do tipo:
+
+1. Tentativa de exibir uma informação (variável b do tipo int) na saída de tipo diferente do especificado pelo código de controle (%f), por exemplo:
+
+//trecho de código:
+int a = 10, b = 5;
+System.out.printf("Variável 'a' = %d\n", a);
+System.out.printf("Variável 'b' = %f\n", b);
+
+resultado:
+
+Variável 'a' = 10
+Variável 'b' = java.util.IllegalFormatConversionException
+
+2. Quantidade de códigos de controle diferente da quantidade de argumentos. 
+No exemplo a seguir, têm-se três códigos de controle (%d/%d/%d) para apenas dois argumentos (dia e mes):
+
+//trecho de código:
+int dia = 30, mes = 11, ano = 1965;
+System.out.printf("Nascido em %d/%d/%d\n", dia, mes);
+
+resultado:
+
+Nascido em 30/11/java.util.MissingFormatArgumentException
 
 
+-------------------------------------------------------------------Método print() e println()------------------------------------------------------------------------------
 
+Usuários recorrem à utilização de programas de computador pela necessidade de informações rápidas para auxiliar no processo de tomada de decisão. 
+Portanto, a tarefa de exibir os resultados na tela do computador acaba se constituindo uma das principais etapas do processamento de dados.
 
+Outros métodos disponíveis na classe System para realizar uma saída de dados no monitor de vídeo são: print() e println(). 
+Basicamente, o método println() imprime na tela uma cadeia de caracteres (ou String) que é enviada ao método como argumento usando a seguinte forma geral:
 
+System.out.println(String);
 
+A diferença entre os métodos print() e println() acontece uma vez que o método println() sempre pulará uma linha após mostrar o valor do seu argumento.
 
+A aplicação Java que calcula o fatorial de um número, apresentada na Listagem 8, mostra um exemplo de como usar os métodos print() e println() para 
+exibir resultados em uma operação de saída de dados usando o monitor de vídeo.
 
+import java.util.Scanner;
 
+  public class Exemplo8 {
 
+    public static void main(String[] args) {
+      Scanner ler = new Scanner(System.in);
+      int i, n, f;
 
+      System.out.println("Informe o número para o fatorial:");
+      n = ler.nextInt();
 
+      System.out.println();
+      System.out.println("Resultado:");
+      System.out.print(n + "! = ");
 
+      f = 1;
+      for (i=n; i>=1; i--) {
+        if (i != 1)
+           System.out.print(i + " * ");
+        else System.out.print(i + " = ");
 
+        f = f * i;
+      }
 
+      System.out.println(f);
+    }
 
+  }
 
+O código fonte, apresentado na Listagem 8, implementa uma entrada de dados para ler um número inteiro (variável n) usado no processo de repetição (for) 
+para calcular o fatorial de n, que matematicamente é indicado como n!. A execução da classe ilustra o passo a passo do desenvolvimento do cálculo do fatorial 
+usando adequadamente os métodos print() e println().
 
+Conclusões
+Neste artigo foram apresentados os conceitos fundamentais relacionados ao processamento de dados que corresponde à utilização do computador na solução lógica de problemas. 
+O processamento transforma os dados como insumos (entradas) e produzem informações como resultados (saídas).
+As operações de entrada de dados foram implementadas usando os métodos da classe Scanner do pacote java.util. 
+Inicialmente foram relacionados os passos para importar o pacote, instanciar e criar um objeto de leitura e a utilização do método adequado na entrada de dados. 
+Em seguida foi destacada a necessidade de esvaziar o buffer do teclado em uma entrada consecutiva de dados numéricos e cadeia de caracteres. 
+A etapa de entrada de dados foi concluída apresentando como deve ser realizada a leitura de dados do tipo caractere.
+As formas para exibir as informações produzidas pelo processamento de dados foram estudadas através dos métodos printf(), print() e println() da classe System. 
+O maior destaque foi dado ao método printf(), que possibilita a formatação da saída através da utilização de códigos de controle e caracteres de escape na 
+implementação.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Para finalizar, vale ressaltar que a entrada e a saída de dados representam etapas fundamentais do processamento de dados, uma vez que as aplicações em geral 
+implementam algum tipo de interação com o usuário solicitando dados de entrada para transformá-los em informações uteis como resposta.
 
 
 
